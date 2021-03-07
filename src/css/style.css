@@ -1,3 +1,4 @@
+
 :root {
   color-scheme: light dark;
 }
@@ -32,7 +33,7 @@ body {
   opacity: 0;
   font-size: 15px;
   color: var(--text-color);
-  font-family: "SF Pro Text", "SF Pro Icons", system, -apple-system, system-ui, system-ui, "Helvetica Neue", Helvetica, "Lucida Grande", sans-serif;
+  font-family: "Poppins", sans-serif;;
   padding: 0;
   margin: 0;
   height:100%;
@@ -417,11 +418,12 @@ header.footer .header-content {
 }
 
 .msg {
-  display: flex;
-  flex-direction: column;
   margin-bottom: 2px;
   overflow-wrap: break-word;
   white-space: pre-wrap;
+  float: left;
+  width: 40%;
+  margin: 1em;
 }
 
 .msg a {
@@ -429,7 +431,6 @@ header.footer .header-content {
 }
 
 .msg-content {
-  background-color: var(--msg-content-background);
   padding: 6px 10px;
   border-radius: 8px;
 
@@ -456,7 +457,7 @@ header.footer .header-content {
 }
 
 #profile .content {
-  width: 800px;
+  width: 100%;
   max-width: 100%;
 }
 
@@ -540,6 +541,8 @@ header.footer .header-content {
   color: var(--sidebar-color);
   margin: 1em;
   padding-top: 10em;
+  border-right:  10px solid rgb(0, 0, 0);
+  ;
 }
 
 .application-list .electron-padding {
@@ -564,6 +567,7 @@ header.footer .header-content {
   align-items: center;
   flex-direction: row;
   color: var(--text-color);
+  font-weight: 700;
 }
 
 @media (max-width:1268px) {
@@ -639,10 +643,13 @@ header.footer .header-content {
 
 .application-list a:hover {
   background: var(--chat-hover);
+  border-radius: 10px 0px 0px 10px;
+
 }
 
 .application-list a.active {
   background: var(--chat-active);
+  border-radius: 10px 0px 0px 10px;
 }
 
 .application-list .icon {
@@ -650,6 +657,7 @@ header.footer .header-content {
   min-width: 55px;
   text-align: center;
   position: relative;
+  display: none;
 }
 
 .application-list .icon .unseen {
@@ -714,6 +722,10 @@ a.msg {
 
 .public-messages-view .msg .text, .public-messages-view .msg .time {
   margin-bottom: 5px;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 .msg-content .msg-content {
@@ -1162,6 +1174,7 @@ hr {
 
 .identicon-container {
   display: inline-block;
+
 }
 
 .chat-item .identicon-container {
@@ -1473,11 +1486,7 @@ form.public {
 }
 
 .profile-photo-container {
-  display: flex;
-  align-items: center;
-  flex: 1;
-  padding: 15px;
-  overflow: hidden;
+display: none;
 }
 
 .profile-photo {
@@ -1719,6 +1728,9 @@ form.public {
     margin-right: 0;
     margin-left: 5px;
   }
+
+
+
   .feed-settings button {
     flex: 1;
     text-align: center;
@@ -1768,11 +1780,22 @@ form.public {
   .chat-message-form button {
     padding: 5px 10px;
   }
-  .profile-photo-container .identicon-container * { max-width: 80px; max-height: 80px; text-align: center;}
-  .side-padding-xs {
-    padding: 5px 0 0 5px;
-  }
+  .profile-photo-container .identicon-container * { 
+     max-width: 80px; 
+     max-height: 80px; 
+     text-align: center;
+     display: none;
+    }
+
+ 
 }
+
+.profile-photo-container .identicon-container  { 
+  max-width: 80px; 
+  max-height: 80px; 
+  text-align: center;
+  display: none;
+ }
 
 @media (min-width: 626px) {
   .visible-xs-block, .visible-xs-inline-block, .visible-xs-flex {

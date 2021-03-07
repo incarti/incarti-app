@@ -2,3 +2,14 @@
     font-family: arialBlack;
     src: url(arial-black.ttf) ;
   }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 0px;
+    background-color: rgb(0, 0, 0);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 0px;
+  }
