@@ -53,12 +53,11 @@ PublicMessages.init();
 Helpers.checkColorScheme();
 
 const APPLICATIONS = [ // TODO: move editable shortcuts to localState gun
-  {url: '/', text: t('home'), icon: Icons.home},
+  {url: '/', text: t('Feed'), icon: Icons.home},
   {url: '/chat', text: t('messages'), icon: Icons.chat},
   {url: '/contacts', text: t('contacts'), icon: Icons.user},
   {url: '/settings', text: t('settings'), icon: Icons.settings},
-  {url: '/explorer', text: t('Explorer'), icon: Icons.folder},
-  {url: '/about', text: t('about')},
+  {url: '/explorer', text: t('Data'), icon: Icons.folder},
 ];
 
 class Menu extends Component {

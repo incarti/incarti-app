@@ -52,21 +52,27 @@ class MessageFeed extends Component {
     const showButtons = this.scroller && this.scroller.elements.size >= size;
     return html`
       <div class="feed-container">
+        <div class="button-holder">
         ${showButtons ? html`
-          <p>
-            <button onClick=${() => this.scroller.up()}>${t('feed_up')}</button>
-            <button onClick=${() => this.topClicked()}>${t('feed_top')}</button>
-          </p>
-        `: ''}
+        <p>
+          <button onClick=${() => this.bottomClicked()}>${t('feed_bottom')}</button>
+          <button onClick=${() => this.scroller.down()}>${t('feed_down')}</button>
+        </p>
+      `: ''}
+        ${showButtons ? html`
+
+        <p>
+          <button onClick=${() => this.scroller.up()}>${t('feed_up')}</button>
+          <button onClick=${() => this.topClicked()}>${t('feed_top')}</button>
+        </p>
+      `: ''}
+
+        </div>
+        
         ${this.state.sortedMessages
           .map(hash => typeof hash === 'string' ? html`<${PublicMessage} hash=${hash} key=${hash} showName=${true} />` : '')
         }
-        ${showButtons ? html`
-          <p>
-            <button onClick=${() => this.scroller.down()}>${t('feed_down')}</button>
-            <button onClick=${() => this.bottomClicked()}>${t('feed_bottom')}</button>
-          </p>
-        `: ''}
+        
       </div>
     `;
   }

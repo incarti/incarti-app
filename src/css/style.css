@@ -315,7 +315,6 @@ a.logo img:last-child {
   flex-direction: column;
   flex: 1 0 10em;
   background: var(--sidebar-bg);
-  border-right: var(--sidebar-border-right);
 }
 
 .sidebar * {
@@ -422,7 +421,7 @@ header.footer .header-content {
   overflow-wrap: break-word;
   white-space: pre-wrap;
   float: left;
-  width: 40%;
+  width: 46%;
   margin: 1em;
 }
 
@@ -541,9 +540,12 @@ header.footer .header-content {
   color: var(--sidebar-color);
   margin: 1em;
   padding-top: 10em;
-  border-right:  10px solid rgb(0, 0, 0);
-  ;
+  
 }
+
+.application-list a:nth-child(3n){
+  margin-top: 3em !important;
+} 
 
 .application-list .electron-padding {
   height: 40px;
@@ -648,8 +650,9 @@ header.footer .header-content {
 }
 
 .application-list a.active {
-  background: var(--chat-active);
+  background: #000;
   border-radius: 10px 0px 0px 10px;
+  color: white;
 }
 
 .application-list .icon {
@@ -818,7 +821,6 @@ a.msg {
 
 #chat-view #message-list {
   max-width: 100%;
-  width: max(80%, 800px);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -1067,7 +1069,6 @@ hr {
 
 .centered-container {
   display: flex;
-  max-width: 800px;
   flex-direction: column;
   margin: 0 auto 0 auto;
 }
