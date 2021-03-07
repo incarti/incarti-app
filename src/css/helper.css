@@ -17,3 +17,19 @@
   .button-holder{
       display: flex;
   }
+
+  form.message-form.hidden-xs.public{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 2;
+  }
+
+  .button-holder {
+    position: fixed;
+    bottom: 130px;
+    width: 100%;
+    background-color: white;
+    z-index: 100;
+    }

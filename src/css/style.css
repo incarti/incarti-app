@@ -109,7 +109,8 @@ button, .button {
 }
 
 button:hover, button:active, button:focus, .button:hover, .button:active, .button:focus {
-  background: var(--button-hover-bg);
+  background-color: #000 ;
+  color: white;
 }
 
 img, video {
@@ -1382,11 +1383,10 @@ form.public div {
 
 form.public button[type="submit"] {
   position: absolute;
-  right: 0;
+  right: 80%;
 }
 
 form.public {
-  margin-bottom: 15px;
 }
 
 .profile-header-stuff {
