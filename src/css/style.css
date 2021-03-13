@@ -1012,7 +1012,7 @@ a.msg {
   padding: 15px;
   display: flex;
   overflow-y: auto;
-  color: white;
+  color: rgb(0, 0, 0);
   position: fixed;
   left: 0;
   right: 0;
@@ -1023,11 +1023,11 @@ a.msg {
 }
 
 #login a {
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 #login a:hover {
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 #login-content {
@@ -1415,6 +1415,11 @@ form.public div {
   position: relative;
 }
 
+#sign-up:hover{
+  background-color: white;
+
+}
+
 form.public button[type="submit"] {
   position: absolute;
   right: 0;
@@ -1643,6 +1648,18 @@ h3.profile-name, .profile-about {
 
 .store-item img {
   margin-bottom: 5px;
+}
+
+.logIn{
+  padding: 1em;
+  background-color: white;
+  color: black;
+}
+
+.language-selector{
+  border: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2em;
 }
 
 .store-item:hover {
