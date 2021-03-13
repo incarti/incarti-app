@@ -228,7 +228,7 @@
    * @method
    * @memberof Popper.Utils
    * @argument {Object} offsets
-   * @returns {Object} ClientRect like output
+   * @returns {Object} ClientRect order output
    */function getClientRect(offsets){return _extends({},offsets,{right:offsets.left+offsets.width,bottom:offsets.top+offsets.height});}/**
    * Get bounding client rect of given element
    * @method

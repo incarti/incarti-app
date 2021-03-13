@@ -33,3 +33,16 @@
     background-color: white;
     z-index: 100;
     }
+
+    .halfIt{
+      width: 50%;
+    }
+
+    .cardBox{
+      float: left;
+      width: 40%;
+      margin: 1em;
+      padding: 1em;
+      border-radius: 10px;
+      
+    }

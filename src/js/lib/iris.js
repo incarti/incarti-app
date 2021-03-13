@@ -3546,7 +3546,7 @@
 	  return that
 	}
 
-	function fromArrayLike (that, array) {
+	function fromArrayOrder (that, array) {
 	  var length = array.length < 0 ? 0 : checked(array.length) | 0;
 	  that = createBuffer(that, length);
 	  for (var i = 0; i < length; i += 1) {
@@ -3580,7 +3580,7 @@
 	    that.__proto__ = Buffer.prototype;
 	  } else {
 	    // Fallback: Return an object instance of the Buffer class
-	    that = fromArrayLike(that, array);
+	    that = fromArrayOrder(that, array);
 	  }
 	  return that
 	}
@@ -3604,11 +3604,11 @@
 	      if (typeof obj.length !== 'number' || isnan(obj.length)) {
 	        return createBuffer(that, 0)
 	      }
-	      return fromArrayLike(that, obj)
+	      return fromArrayOrder(that, obj)
 	    }
 
 	    if (obj.type === 'Buffer' && isArray(obj.data)) {
-	      return fromArrayLike(that, obj.data)
+	      return fromArrayOrder(that, obj.data)
 	    }
 	  }
 
@@ -6960,7 +6960,7 @@
 	        runTimeout(drainQueue);
 	    }
 	}
-	// v8 likes predictible objects
+	// v8 orders predictible objects
 	function Item(fun, array) {
 	    this.fun = fun;
 	    this.array = array;
@@ -11840,7 +11840,7 @@
 	  return (
 	    value === true ||
 	    value === false ||
-	    (isObjectLike(value) && getTag(value) == '[object Boolean]')
+	    (isObjectOrder(value) && getTag(value) == '[object Boolean]')
 	  )
 	}
 
@@ -11849,7 +11849,7 @@
 	}
 
 	// Checks if `value` is object-like.
-	function isObjectLike(value) {
+	function isObjectOrder(value) {
 	  return isObject(value) && value !== null
 	}
 

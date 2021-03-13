@@ -22,7 +22,7 @@ class PublicMessage extends Message {
     super();
     this.i = 0;
     this.eventListeners = {};
-    this.likedBy = new Set();
+    this.orderedBy = new Set();
     this.replies = {};
     this.subscribedReplies = new Set();
     this.state = { sortedReplies: [] };
@@ -41,11 +41,11 @@ class PublicMessage extends Message {
       }
       State.local.get('follows').map().on((v, key, a, e) => {
         this.eventListeners[key] = e;
-        State.public.user(key).get('likes').get(this.props.hash).on((liked,a,b,e) => {
-          this.eventListeners[key+'likes'] = e;
-          liked ? this.likedBy.add(key) : this.likedBy.delete(key);
-          const s = {likes: this.likedBy.size};
-          if (key === Session.getPubKey()) s['liked'] = liked;
+        State.public.user(key).get('orders').get(this.props.hash).on((ordered,a,b,e) => {
+          this.eventListeners[key+'orders'] = e;
+          ordered ? this.orderedBy.add(key) : this.orderedBy.delete(key);
+          const s = {orders: this.orderedBy.size};
+          if (key === Session.getPubKey()) s['ordered'] = ordered;
           this.setState(s);
         });
         State.public.user(key).get('replies').get(this.props.hash).map().on((hash,time,b,e) => {
@@ -66,11 +66,11 @@ class PublicMessage extends Message {
     if (prevProps.hash !== this.props.hash) {
       Object.values(this.eventListeners).forEach(e => e.off());
       this.eventListeners = {};
-      this.likedBy = new Set();
+      this.orderedBy = new Set();
       this.replies = new Set();
       this.subscribedReplies = new Set();
       this.linksDone = false;
-      this.setState({replies:0, likes: 0, sortedReplies:[]});
+      this.setState({replies:0, orders: 0, sortedReplies:[]});
       this.componentDidMount();
     }
     if (this.state.msg && !this.linksDone) {
@@ -133,10 +133,10 @@ class PublicMessage extends Message {
     route('/profile/' + this.state.msg.info.from);
   }
 
-  likeBtnClicked(e) {
+  orderBtnClicked(e) {
     e.preventDefault();
-    const liked = !this.state.liked;
-    State.public.user().get('likes').get(this.props.hash).put(liked);
+    const ordered = !this.state.ordered;
+    State.public.user().get('orders').get(this.props.hash).put(ordered);
   }
 
   onDelete(e) {
@@ -192,19 +192,19 @@ class PublicMessage extends Message {
             <span class="count" onClick=${() => this.toggleReplies()}>
               ${this.state.replies || ''}
             </span>
-            <a class="msg-btn like-btn ${this.state.liked ? 'liked' : ''}" onClick=${e => this.likeBtnClicked(e)}>
-              ${this.state.liked ? heartFull : heartEmpty}
+            <a class="msg-btn order-btn ${this.state.ordered ? 'ordered' : ''}" onClick=${e => this.orderBtnClicked(e)}>
+              ${this.state.ordered ? heartFull : heartEmpty}
             </a>
-            <span class="count" onClick=${() => this.setState({showLikes: !this.state.showLikes})}>
-              ${this.state.likes || ''}
+            <span class="count" onClick=${() => this.setState({showOrders: !this.state.showOrders})}>
+              ${this.state.orders || ''}
             </span>
             <div class="time">
               <a href="/post/${encodeURIComponent(this.props.hash)}">${Helpers.getRelativeTimeText(time)}</a>
             </div>
           </div>
-          ${this.state.showLikes ? html`
-            <div class="likes">
-              ${Array.from(this.likedBy).map(key => {
+          ${this.state.showOrders ? html`
+            <div class="orders">
+              ${Array.from(this.orderedBy).map(key => {
                 return html`<${Identicon} showTooltip=${true} onClick=${() => route('/profile/' + key)} str=${key} width=32/>`;
               })}
             </div>

@@ -14,7 +14,7 @@ export default {
     follow_someone_info: "Follow someone to see content from their network! Suggestion:",
     creator_of_this_distribution: "Creator of this Iris distribution",
     no_followers_yet: "Share your profile link so others can follow you:",
-    no_followers_yet_info: "Your posts, replies and likes are only shown to your followers and their network.",
+    no_followers_yet_info: "Your posts, replies and orders are only shown to your followers and their network.",
     alternatively: "Alternatively,",
     give_your_profile_link_to_someone: "give your profile link to someone",
     if_other_person_doesnt_see_message: "If the other person doesn't see your message, you can give them <b>your</b> invite link through some other channel:",

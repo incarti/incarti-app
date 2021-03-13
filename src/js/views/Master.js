@@ -20,7 +20,7 @@ const chevronRight = html`
 </svg>
 `;
 
-class Explorer extends View {
+class Master extends View {
   renderView() {
     const split = (this.props.node || '').split('/');
     const gun = (split.length && split[0]) === 'local' ? State.local : State.public;
@@ -29,31 +29,39 @@ class Explorer extends View {
       ${chevronRight} <a href="#/explorer/${encodeURIComponent(split.slice(0,i+1).join('/'))}">${decodeURIComponent(k)}</a>
     `);
     return html`
-      ${path ? '' : html `<p>Useful debug data for nerds.</p>`}
-      <p>
-        <a href="#/explorer">All</a> ${path ? pathString : ''}
-      </p>
-      ${path ? html`
-        <${ExplorerNode} indent=${0} showTools=${true} gun=${gun} path=${this.props.node}/>
-      ` : html`
-        <div class="explorer-row">
-          ${chevronDown} Public (synced with peers)
-        </div>
-        <div class="explorer-row" style="margin-left: 1em">
-          ${chevronDown} Users
-        </div>
-        <div class="explorer-row" style="margin-left: 2em">
-          ${chevronDown} <a href="#/explorer/public%2F~${encodeURIComponent(Session.getPubKey())}">${Session.getPubKey()}</a>
-        </div>
-        <${ExplorerNode} indent=${3} gun=${State.public} path='public/~${Session.getPubKey()}'/>
-        <div class="explorer-row" style="margin-left: 1em">
-          ${chevronRight} <a href="#/explorer/public%2F%23">#</a> (content-addressed values, such as public posts)
-        </div>
-        <br/><br/>
-        <div class="explorer-row">
-          ${chevronDown} Local (only stored on your device)
-        </div>
-        <${ExplorerNode} indent=${1} gun=${State.local} path='local'/>
+      ${path ? '' : html ``}
+
+        
+        ${path ? html`
+            <${ExplorerNode} indent=${0} showTools=${true} gun=${gun} path=${this.props.node}/>
+        ` : html`
+            <div class="cardBox">
+
+                <${ExplorerNode} indent=${3} gun=${State.public} path='public/~${Session.getPubKey()}'/>
+
+            </div>
+
+            <div class="cardBox">
+                <div class="explorer-row">
+                ${chevronDown} Local (only stored on your device)
+                </div>
+                <${ExplorerNode} indent=${1} gun=${State.local.get('channels')} path='local'/>
+            </div>
+
+            <div class="cardBox">
+              <div class="explorer-row">
+              ${chevronDown} Local (only stored on your device)
+              </div>
+              <${ExplorerNode} indent=${1} gun=${State.local.get('feed')} path='local'/>
+            </div>
+
+            <div class="cardBox">
+              <div class="explorer-row">
+              ${chevronDown} Local (only stored on your device)
+              </div>
+              <${ExplorerNode} indent=${1} gun=${State.local.get('follows')} path='local'/>
+            </div>
+
       `}
     `;
   }
@@ -133,7 +141,7 @@ class ExplorerNode extends Component {
   renderChildObject(k) {
     const path = this.props.path + '/' + encodeURIComponent(k);
     return html`
-      <div class="" style="margin-left: ${this.props.indent}em">
+      <div class="explorer-row" style="padding-left: ${this.props.indent}em">
         <span onClick=${e => this.onChildObjectClick(e, k)}>${this.state.children[k].open ? chevronDown : chevronRight}</span>
         <a href="#/explorer/${encodeURIComponent(path)}"><b>${k}</b></a>
       </div>
@@ -193,7 +201,7 @@ class ExplorerNode extends Component {
       }
     }
     return html`
-      <div class="" style="margin-left: ${this.props.indent}em">
+      <div class="explorer-row" style="padding-left: ${this.props.indent}em">
         <b class="val">${k} ${keyLinks}</b>:
         ${encryption ? html`
           <span class="tooltip"><span class="tooltiptext">${encryption} value</span>
@@ -232,7 +240,7 @@ class ExplorerNode extends Component {
   render() {
     return html`
       ${this.props.indent === 0 ? html`
-        <div class="" style="margin-left: ${this.props.indent}em">
+        <div class="explorer-row" style="padding-left: ${this.props.indent}em">
           ${this.props.showTools ? html`
             <p class="explorer-tools">
               <a onClick=${() => this.onExpandClicked()}>${this.state.expandAll ? 'Close all' : 'Expand all'}</a>
@@ -265,4 +273,4 @@ class ExplorerNode extends Component {
   }
 }
 
-export default Explorer;
+export default Master;

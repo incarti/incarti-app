@@ -24,6 +24,7 @@ import Follows from './views/Follows.js';
 import Feed from './views/Feed.js';
 import About from './views/About.js';
 import Explorer from './views/Explorer.js';
+import Master from './views/Master.js';
 import Contacts from './views/Contacts.js';
 
 import VideoCall from './components/VideoCall.js';
@@ -58,6 +59,8 @@ const APPLICATIONS = [ // TODO: move editable shortcuts to localState gun
   {url: '/contacts', text: t('contacts'), icon: Icons.user},
   {url: '/settings', text: t('settings'), icon: Icons.settings},
   {url: '/explorer', text: t('Data'), icon: Icons.folder},
+  {url: '/master', text: t('Master'), icon: Icons.folder},
+
 ];
 
 class Menu extends Component {
@@ -169,6 +172,7 @@ class Main extends Component {
               <${Product} path="/product/new" store=Session.getPubKey()/>
               <${Explorer} path="/explorer/:node"/>
               <${Explorer} path="/explorer"/>
+              <${Master} path="/master"/>
               <${Follows} path="/follows/:id"/>
               <${Follows} followers=${true} path="/followers/:id"/>
               <${Contacts} path="/contacts"/>

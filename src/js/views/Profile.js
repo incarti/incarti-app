@@ -70,7 +70,7 @@ class Profile extends View {
           <div class="msg-content">
             <p>Share your profile link so ${this.state.name || 'this user'} can follow you:</p>
             <p><${CopyButton} text=${t('copy_link')} title=${Session.getMyName()} copyStr=${Helpers.getProfileLink(Session.getPubKey())}/></p>
-            <small>Your posts, replies and likes are only shown to your followers and their network.</small>
+            <small>Your posts, replies and orders are only shown to your followers and their network.</small>
           </div>
         </div>
       `;
