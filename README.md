@@ -1,13 +1,17 @@
-# Iris
-Iris is like the social networking apps we're used to, but better.
+# INCARTI
+
+Incarti is a peer to peer manufacturing application. 
+
+Built off of Iris (Browser application: [iris.to](https://iris.to)) so show love there.
+
+
+
 * No phone number or signup required. Just type in your name or alias and go!
 * Secure: It's open source. Users can validate that big brother doesn't read your private messages.
 * Available: It works offline-first and is not dependent on any single centrally managed server. Users can even connect directly to each other.
 
-![Screenshot](src/img/screenshot.png)
-
 ## Use
-Browser application: [iris.to](https://iris.to)
+
 * No installation required
 * Progressive web app
   * Use offline
@@ -52,4 +56,4 @@ Join our [Discord](https://discord.gg/4Dgf54k) or send me a message on [Iris](ht
 
 <a href="https://opencollective.com/iris-social/donate" target="_blank"><img src="https://opencollective.com/iris-social/donate/button@2x.png?color=blue" width=200 /></a>
 
-<p><sub>BTC donations: 3GopC1ijpZktaGLXHb7atugPj9zPGyQeST</sub></p>
+<p><sub> MARTTI'S (WRITTER OF IRIS WHICH LAYED THE GROUND WORK FOR ME)BTC donations: 3GopC1ijpZktaGLXHb7atugPj9zPGyQeST</sub></p>
