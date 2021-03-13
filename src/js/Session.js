@@ -152,7 +152,7 @@ function login(k) {
   });
   State.public.user().get('msgs').put({a:null}); // These need to be initialised for some reason, otherwise 1st write is slow
   State.public.user().get('replies').put({a:null});
-  State.public.user().get('orders').put({a:null});
+  State.public.user().get('likes').put({a:null});
   if (shouldRefresh) {
     location.reload();
   }
@@ -175,6 +175,10 @@ function clearIndexedDB() {
 
 function getMyChatLink() {
   return latestChatLink || Helpers.getProfileLink(key.pub);
+}
+
+function getMyStoreLink() {
+  return latestChatLink || Helpers.getStoreLink(key.pub);
 }
 
 function removeChatLink(id) {

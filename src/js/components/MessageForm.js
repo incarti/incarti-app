@@ -43,16 +43,6 @@ class MessageForm extends Component {
     if (!text.length && !chat.attachments) { return; }
     chat.setTyping(false);
     const msg = {text};
-
-    var fields = text.split('|');
-    var part = fields[0];
-    var cost = fields[1];
-
-    var range = part.split('.');
-    var rangeLetter = range[0]
-
-    
-
     if (this.props.replyingTo) {
       msg.replyingTo = this.props.replyingTo;
     }
@@ -62,12 +52,7 @@ class MessageForm extends Component {
     if (this.state.torrentId) {
       msg.torrentId = this.state.torrentId;
     }
-    if ( rangeLetter.length <= 3 && cost.length > 0){
-      chat.send(msg);
-
-    } else {
-      window.alert("unit|price|quantity")
-    }
+    chat.send(msg);
     this.closeAttachmentsPreview();
     textEl.val('');
     const textarea = $('textarea.new-msg');

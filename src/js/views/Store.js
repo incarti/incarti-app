@@ -101,7 +101,7 @@ class Store extends View {
         ` : ''}
         <div class="store-items">
           ${this.isMyProfile ? html`
-            <div class="store-item" onClick=${() => route(`/product/new`)}>
+            <div class="store-item" style="min-content" onClick=${() => route(`/product/new`)}>
               <a href="/product/new" class="name">Add item</a>
             </div>
           ` : ''}

@@ -22,15 +22,10 @@ class Product extends StoreView {
     return html`
       <div class="main-view" id="profile">
         <div class="content">
-          <a href="/store/${Session.getPubKey()}"><iris-text path="profile/name" user=${Session.getPubKey()} /></a>
-          <h3>Add item</h3>
-          <h2 contenteditable placeholder="Item name" onInput=${e => this.newProductName = e.target.innerText} />
+
+          <h2 contenteditable style="text-decoration:none;" placeholder="Item name" onInput=${e => this.newProductName = e.target.innerText} />
           <textarea placeholder="Item description" onInput=${e => this.newProductDescription = e.target.value} style="resize: vertical"/>
           <input type="number" placeholder="Price" onInput=${e => this.newProductPrice = parseInt(e.target.value)}/>
-          <hr/>
-          <p>
-            Item ID:
-          </p>
           <p>
             <input placeholder="Item ID" onInput=${e => this.newProductId = e.target.value} />
           </p>

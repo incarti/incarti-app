@@ -39,14 +39,14 @@ class Explorer extends View {
         <div class="explorer-row">
           ${chevronDown} Public (synced with peers)
         </div>
-        <div class="explorer-row" style="margin-left: 1em">
+        <div class="explorer-row" style="padding-left: 1em">
           ${chevronDown} Users
         </div>
-        <div class="explorer-row" style="margin-left: 2em">
+        <div class="explorer-row" style="padding-left: 2em">
           ${chevronDown} <a href="#/explorer/public%2F~${encodeURIComponent(Session.getPubKey())}">${Session.getPubKey()}</a>
         </div>
         <${ExplorerNode} indent=${3} gun=${State.public} path='public/~${Session.getPubKey()}'/>
-        <div class="explorer-row" style="margin-left: 1em">
+        <div class="explorer-row" style="padding-left: 1em">
           ${chevronRight} <a href="#/explorer/public%2F%23">#</a> (content-addressed values, such as public posts)
         </div>
         <br/><br/>
@@ -133,7 +133,7 @@ class ExplorerNode extends Component {
   renderChildObject(k) {
     const path = this.props.path + '/' + encodeURIComponent(k);
     return html`
-      <div class="" style="margin-left: ${this.props.indent}em">
+      <div class="explorer-row" style="padding-left: ${this.props.indent}em">
         <span onClick=${e => this.onChildObjectClick(e, k)}>${this.state.children[k].open ? chevronDown : chevronRight}</span>
         <a href="#/explorer/${encodeURIComponent(path)}"><b>${k}</b></a>
       </div>
@@ -193,7 +193,7 @@ class ExplorerNode extends Component {
       }
     }
     return html`
-      <div class="" style="margin-left: ${this.props.indent}em">
+      <div class="explorer-row" style="padding-left: ${this.props.indent}em">
         <b class="val">${k} ${keyLinks}</b>:
         ${encryption ? html`
           <span class="tooltip"><span class="tooltiptext">${encryption} value</span>
@@ -232,7 +232,7 @@ class ExplorerNode extends Component {
   render() {
     return html`
       ${this.props.indent === 0 ? html`
-        <div class="" style="margin-left: ${this.props.indent}em">
+        <div class="explorer-row" style="padding-left: ${this.props.indent}em">
           ${this.props.showTools ? html`
             <p class="explorer-tools">
               <a onClick=${() => this.onExpandClicked()}>${this.state.expandAll ? 'Close all' : 'Expand all'}</a>

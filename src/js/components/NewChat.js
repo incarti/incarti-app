@@ -82,6 +82,11 @@ class NewChat extends Component {
       e.preventDefault();
       route('/profile/' + Session.getKey().pub);
     });
+
+    $(".store-link").attr('href', Helpers.getStoreLink(Session.getKey() && Session.getKey().pub)).off().on('click', e => {
+      e.preventDefault();
+      route('/store/' + Session.getKey().pub);
+    });
   }
 
   render() {

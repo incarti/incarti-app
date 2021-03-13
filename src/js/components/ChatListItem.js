@@ -57,8 +57,8 @@ class ChatListItem extends Component {
     }
 
     let iconEl = chat.photo ?
-      html`<div class="identicon-container"><img src="${chat.photo}" class="round-borders" height=49 width=49 alt=""/></div>` :
-      html`<${Identicon} str=${chat.id} width=49/>`;
+      html`<div class="identicon-container"><img src="${chat.photo}" class="round-borders" height=30 width=30 alt=""/></div>` :
+      html`<${Identicon} str=${chat.id} width=30/>`;
 
     const latestEl = chat.isTyping ? '' : html`<small class="latest">
       ${this.state.latest.selfAuthored && seenIndicator}

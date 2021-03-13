@@ -70,7 +70,8 @@ class Profile extends View {
           <div class="msg-content">
             <p>Share your profile link so ${this.state.name || 'this user'} can follow you:</p>
             <p><${CopyButton} text=${t('copy_link')} title=${Session.getMyName()} copyStr=${Helpers.getProfileLink(Session.getPubKey())}/></p>
-            <small>Your posts, replies and orders are only shown to your followers and their network.</small>
+            <p><${CopyButton} text=${t('copy_store')} title=${Session.getMyStore()} copyStr=${Helpers.getStoreLink(Session.getPubKey())}/></p>
+            <small>Your posts, replies and likes are only shown to your followers and their network.</small>
           </div>
         </div>
       `;
@@ -237,6 +238,9 @@ class Profile extends View {
                 ${uuid ? '' : html`
                   <${CopyButton} text=${t('copy_link')} title=${this.state.name} copyStr=${'https://iris.to/' + window.location.hash}/>
                 `}
+                ${uuid ? '' : html`
+                <${CopyButton} text=${t('copy_store')} title=${this.state.name} copyStr=${'http://localhost:5000/src/#/store/' + Session.getKey().pub}/>
+              `}
                 <button onClick=${() => $('#profile-page-qr').toggle()}>${t('show_qr_code')}</button>
                 ${this.isMyProfile ? '' : html`
                   <button class="show-settings" onClick=${() => this.onClickSettings()}>${t('settings')}</button>

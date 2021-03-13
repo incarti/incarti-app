@@ -24,8 +24,8 @@ import Follows from './views/Follows.js';
 import Feed from './views/Feed.js';
 import About from './views/About.js';
 import Explorer from './views/Explorer.js';
-import Master from './views/Master.js';
 import Contacts from './views/Contacts.js';
+
 
 import VideoCall from './components/VideoCall.js';
 import Identicon from './components/Identicon.js';
@@ -54,13 +54,12 @@ PublicMessages.init();
 Helpers.checkColorScheme();
 
 const APPLICATIONS = [ // TODO: move editable shortcuts to localState gun
-  {url: '/', text: t('Feed'), icon: Icons.home},
-  {url: '/chat', text: t('messages'), icon: Icons.chat},
-  {url: '/contacts', text: t('contacts'), icon: Icons.user},
-  {url: '/settings', text: t('settings'), icon: Icons.settings},
-  {url: '/explorer', text: t('Data'), icon: Icons.folder},
-  {url: '/master', text: t('Master'), icon: Icons.folder},
-
+  {url: '/', text: t('Feed'),},
+  {url: '/chat', text: t('Messages'), },
+  {url: '/contacts', text: t('Contacts'), },
+  {url: '/settings', text: t('Settings'), },
+  {url: '/explorer', text: t('Data'),},
+  {url: '/store', text: t('Stock'),},
 ];
 
 class Menu extends Component {
@@ -76,6 +75,7 @@ class Menu extends Component {
       <div class="application-list">
         ${iris.util.isElectron ? html`<div class="electron-padding"/>` : html`
           <a href="/" class="hidden-xs" tabindex="0" class="logo">
+            <h1 style="margin-left: -2em; font-family: arialBlack">INCARTI</h1>
           </a>
         `}
         <div class="visible-xs-block">
@@ -85,13 +85,16 @@ class Menu extends Component {
           <//>
           <br/><br/>
         </div>
+        
+        <h3 class="hideSmall" style="margin-left: 1.5em; font-weight:700;">Nav</h3>
+
         ${APPLICATIONS.map(a => {
           if (a.url) {
             return html`
               <${a.native ? 'a' : Link} onClick=${() => State.local.get('toggleMenu').put(false)} activeClassName="active" href=${a.url}>
                 <span class="icon">
                   ${a.text === t('messages') && this.state.unseenTotal ? html`<span class="unseen unseen-total">${this.state.unseenTotal}</span>`: ''}
-                  ${a.icon || Icons.circle}
+                  ${a.icon}
                 </span>
                 <span class="text">${a.text}</span>
               <//>`;
@@ -99,6 +102,11 @@ class Menu extends Component {
             return html`<br/><br/>`;
           }
         })}
+
+        <h3 class="hideSmall" style="margin-left: 1.5em; font-weight:700;">Docs</h3>
+          <a>Github</a>
+          <a>Guides</a>
+          <a>Community</a>
       </div>
     `;
   }
@@ -172,7 +180,6 @@ class Main extends Component {
               <${Product} path="/product/new" store=Session.getPubKey()/>
               <${Explorer} path="/explorer/:node"/>
               <${Explorer} path="/explorer"/>
-              <${Master} path="/master"/>
               <${Follows} path="/follows/:id"/>
               <${Follows} followers=${true} path="/followers/:id"/>
               <${Contacts} path="/contacts"/>
