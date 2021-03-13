@@ -25,6 +25,15 @@ Desktop application: ([download](https://github.com/irislib/iris-electron/releas
 * More secure and available: no need to open the browser application from a server.
 
 ## Develop
+
+```
+git clone https://github.com/irislib/iris-messenger.git
+cd iris-messenger
+npx serve
+```
+
+or
+
 ```
 git clone https://github.com/irislib/iris-messenger.git
 cd iris-messenger
