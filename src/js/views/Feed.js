@@ -10,7 +10,7 @@ import Session from '../Session.js';
 import View from './View.js';
 import {translate as t} from '../Translation.js';
 
-const SUGGESTED_FOLLOW = 'hyECQHwSo7fgr2MVfPyakvayPeixxsaAWVtZ-vbaiSc.TXIp8MnCtrnW6n2MrYquWPcc-DTmZzMBmc2yaGv9gIU';
+const SUGGESTED_FOLLOW = 'H6hZm_JckdHa4ur-kTY_9FEehqX_-e9QKAxOsjoLqMc.4iPNREav0YVofOMOs2TIl_uPdYDKwZ7r9KY_6Ya1INE&s=MXy3pcfGAeFDbByBZHkPvcj6piIA_HKSUnGg0fn5G_U&k=ELI%2B1od6JzYG';
 
 class Feed extends View {
   constructor() {
