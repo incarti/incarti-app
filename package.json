@@ -1,7 +1,9 @@
 {
-  "name": "iris-messenger",
+  "name": "Incarti",
   "version": "1.0.0",
-  "author": "Martti Malmi <sirius@iki.fi>",
+  "author-iris": "Martti Malmi <sirius@iki.fi>",
+  "author-incarti": "Antony Perillo <info.incarti@protonmail.com>",
+
   "license": "MIT",
   "devDependencies": {
     "eslint": "^7.4.0",
