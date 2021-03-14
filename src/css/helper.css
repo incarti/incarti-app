@@ -19,3 +19,14 @@
   stroke: #4691f6;
   stroke-width: 1;
 }
+
+.cartBox {
+  background-color: rgb(255, 255, 255);
+}
+
+.cartBox 
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill: #000000;
+}

@@ -54,12 +54,13 @@ PublicMessages.init();
 Helpers.checkColorScheme();
 
 const APPLICATIONS = [ // TODO: move editable shortcuts to localState gun
-  {url: '/', text: t('Feed'),},
+  {url: '/', text: t('Stock'),},
+  {url: '/feed', text: t('Feed'),},
   {url: '/chat', text: t('Messages'), },
   {url: '/contacts', text: t('Contacts'), },
   {url: '/settings', text: t('Settings'), },
   {url: '/explorer', text: t('Data'),},
-  {url: '/store', text: t('Stock'),},
+
 ];
 
 class Menu extends Component {
@@ -74,8 +75,8 @@ class Menu extends Component {
     return html`
       <div class="application-list">
         ${iris.util.isElectron ? html`<div class="electron-padding"/>` : html`
-          <a href="/" class="hidden-xs" tabindex="0" class="logo">
-            <h1 style="margin-left: -2em; font-family: arialBlack">INCARTI</h1>
+          <a style="box-shadow: none;" href="/" class="hidden-xs" tabindex="0" class="logo">
+            <h1 style="margin-left: -2em; font-family: arialBlack; ">INCARTI</h1>
           </a>
         `}
         <div class="visible-xs-block">
@@ -165,7 +166,7 @@ class Main extends Component {
           <div class="overlay" onClick=${e => this.onClickOverlay(e)}></div>
           <div class="view-area">
             <${Router} history=${createHashHistory()} onChange=${e => this.handleRoute(e)}>
-              <${Feed} path="/"/>
+              <${Store} path="/"/>
               <${Feed} path="/feed"/>
               <${Login} path="/login"/>
               <${Chat} path="/chat/:id?"/>

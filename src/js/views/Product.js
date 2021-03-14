@@ -21,10 +21,10 @@ class Product extends StoreView {
     console.log('new');
     return html`
       <div class="main-view" id="profile">
-        <div class="content">
+        <div class="content" style="margin-top: 5em">
 
-          <h2 contenteditable style="text-decoration:none;" placeholder="Item name" onInput=${e => this.newProductName = e.target.innerText} />
-          <textarea placeholder="Item description" onInput=${e => this.newProductDescription = e.target.value} style="resize: vertical"/>
+          <h2 contenteditable style="text-decoration:none;" placeholder="Product name" onInput=${e => this.newProductName = e.target.innerText} />
+          <textarea placeholder="Product description" onInput=${e => this.newProductDescription = e.target.value} style="resize: vertical"/>
           <input type="number" placeholder="Price" onInput=${e => this.newProductPrice = parseInt(e.target.value)}/>
           <p>
             <input placeholder="Item ID" onInput=${e => this.newProductId = e.target.value} />

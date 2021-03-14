@@ -475,8 +475,7 @@ header.footer .header-content {
 }
 
 #profile .content {
-  width: 800px;
-  max-width: 100%;
+
 }
 
 .view-area {
@@ -552,13 +551,19 @@ header.footer .header-content {
   background: var(--chat-hover);
 }
 
+.null button:hover {
+  color: inherit;
+  background: inherit;
+  transform: scale(1.08);
+}
+
 .application-list {
   z-index: 2;
-  width: 220px;
+  width: 15em;
   transition: all 0.25s ease;
   color: var(--sidebar-color);
+  
 
-  background-color: #000000;
   margin: 0.5em;
   border-radius: 10px;
 
@@ -585,7 +590,7 @@ header.footer .header-content {
 
 .application-list a {
   text-decoration: none;
-  color: white;
+  color: #000000;
   display: flex;
   align-items: center;
   font-weight: 500;
@@ -593,11 +598,12 @@ header.footer .header-content {
   font-size: 14px;
   border-radius: 6px;
   transition: 0.3s;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
 
 }
 
 .hideSmall{
-  color: white;
+  color: rgb(0, 0, 0);
   font-weight: 800;
 
 }
@@ -1605,39 +1611,43 @@ form.public {
 
 .store-items {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
 
 .store-item {
   display: inline-block;
   flex-direction: column;
-  width: calc(33.33% - 8px);
+  width: 13em;
+  height: 20em;
   padding: 15px;
   margin-right: 8px;
   margin-bottom: 8px;
   cursor: pointer;
   transition: all 125ms;
-  border-radius: 8px;
-
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
+  box-shadow: rgb(0 0 0 / 10%) 0px 4px 12px;
+  margin: 1em;
 }
 
 .store-item a {
   font-weight: bold;
-  color: white;
+  color: black;
+  margin-top: 3em !important;
+  /* background-color: black; */
+  border-radius: 5px;
+  padding: 0.4em;
+  color: black;
+  border: 2px black solid;
 }
 
 .follow-count {
-  background-color: black;
-  border-radius: 5px;
-  color: white !important;
+
   padding: 0.4em;
 }
 
 h3.profile-name, .profile-about {
-  background-color: black;
-  color: white;
+
   padding: 0.4em;
   border-radius: 5px;
 }
@@ -1663,7 +1673,7 @@ h3.profile-name, .profile-about {
 }
 
 .store-item:hover {
-  opacity: 0.9;
+  transform: scale(1.03)
 }
 
 .price-cell {
@@ -1688,6 +1698,8 @@ h3.profile-name, .profile-about {
 .unit-price {
   margin-right: 15px;
 }
+
+
 
 .price {
   flex-grow: 1;
