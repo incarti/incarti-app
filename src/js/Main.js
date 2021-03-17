@@ -103,11 +103,6 @@ class Menu extends Component {
             return html`<br/><br/>`;
           }
         })}
-
-        <h3 class="hideSmall" style="margin-left: 1.5em; font-weight:700;">Docs</h3>
-          <a>Github</a>
-          <a>Guides</a>
-          <a>Community</a>
       </div>
     `;
   }

@@ -1,3 +1,5 @@
+
+
 :root {
   color-scheme: light dark;
 }
@@ -52,7 +54,6 @@ a {
 }
 
 a:hover, a:focus {
-  text-decoration: underline;
   outline: none;
 }
 
@@ -77,14 +78,16 @@ textarea {
   padding: 10px;
   border: 0;
   border-radius: 6px;
-  border: var(--msg-border);
+
   margin: 15px 0;
-  background-color: inherit;
-  border: var(--border)  ;
-  color: var(--text-color);
+
   resize: none;
-  color: white;
-  background-color: black;
+
+
+  background-color: white;
+  box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+  color: black;
+  font-weight: 500;
 }
 
 input, button, .button {
@@ -119,10 +122,6 @@ button, .button {
   cursor: pointer;
 }
 
-button:hover, button:active, button:focus, .button:hover, .button:active, .button:focus {
-  background: var(--button-hover-bg);
-  color: white;
-}
 
 img, video {
   max-width: 100%;
@@ -469,13 +468,56 @@ header.footer .header-content {
 }
 
 #profile {
-  display: flex;
+
   flex-direction: column;
   align-items: center;
 }
 
 #profile .content {
+  
+}
 
+.store-item {
+  display: inline-block;
+  flex-direction: column;
+  width: 13em;
+  
+  padding: 15px;
+
+  cursor: pointer;
+  transition: all 125ms;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  margin: 1em;
+}
+
+
+.floattop{
+  
+  width: max-content;
+  padding: 15px;
+  min-height: 20em;
+  width: 13em;
+
+  
+  background-color: white;
+  color: black;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 5px;
+
+}
+
+.floatbottom{
+  height: min-content;
+  margin-top: 1em;
+  width: 13em;
+
+  
+  background-color: white;
+  color: black;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 5px;
 }
 
 .view-area {
@@ -548,14 +590,10 @@ header.footer .header-content {
 
 .title-bar-btns button:hover {
   padding: 0;
-  background: var(--chat-hover);
+
 }
 
-.null button:hover {
-  color: inherit;
-  background: inherit;
-  transform: scale(1.08);
-}
+
 
 .application-list {
   z-index: 2;
@@ -570,6 +608,8 @@ header.footer .header-content {
   display: flex;
   flex-direction: column;
   white-space: nowrap;
+
+
 }
 
 .application-list .electron-padding {
@@ -748,6 +788,11 @@ a.msg {
   color: white;
   padding: 0.4em;
   border-radius: 4px;
+
+  background-color: white;
+    box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+    color: black;
+    font-weight: 700;
 }
 
 .msg-content .msg-content {
@@ -1272,11 +1317,11 @@ small {
 }
 
 .chat-item.active-item, .chat-item.active-item:hover {
-  background: var(--chat-active);
+
 }
 
 .chat-item:hover {
-  background: var(--chat-hover);
+
 }
 
 .chat-item.new, .chat-item.public-messages {
@@ -1438,6 +1483,10 @@ form.public {
 .profile-header-stuff {
   display:flex;
   flex-direction:column;
+
+  box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+  padding: 1em;
+  border-radius: 10px;
 }
 
 .profile-header-stuff .profile-about {
@@ -1510,12 +1559,20 @@ form.public {
   margin-bottom: 15px;
   display: flex;
   align-items: center;
+
+  box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+  padding: 0.3em;
+  border-radius: 5px;
+
 }
 
 .profile-link-container .profile-link {
   display: flex;
   flex: 1;
   align-items: center;
+
+
+
 }
 
 .profile-link .identicon-container {
@@ -1612,23 +1669,15 @@ form.public {
 .store-items {
   display: flex;
   /* flex-wrap: wrap; */
+
+  overflow-y: hidden;
+    white-space: nowrap;
+
 }
 
-.store-item {
-  display: inline-block;
-  flex-direction: column;
-  width: 13em;
-  height: 20em;
-  padding: 15px;
-  margin-right: 8px;
-  margin-bottom: 8px;
-  cursor: pointer;
-  transition: all 125ms;
-  background-color: white;
-  color: black;
-  box-shadow: rgb(0 0 0 / 10%) 0px 4px 12px;
-  margin: 1em;
-}
+
+
+
 
 .store-item a {
   font-weight: bold;
@@ -1636,9 +1685,7 @@ form.public {
   margin-top: 3em !important;
   /* background-color: black; */
   border-radius: 5px;
-  padding: 0.4em;
   color: black;
-  border: 2px black solid;
 }
 
 .follow-count {
@@ -1653,7 +1700,7 @@ h3.profile-name, .profile-about {
 }
 
 .follow-count a{
-  color: white !important;
+  color: rgb(0, 0, 0) !important;
 }
 
 .store-item img {
@@ -1746,6 +1793,14 @@ h3.profile-name, .profile-about {
   margin-right: 30px;
 }
 
+#contacts-list{
+  height: 30em  !important;
+  overflow-y: scroll;
+  padding: 1em;
+  display: flex;
+
+  width: min-content;
+}
 
 /* Tooltip container */
 .tooltip {
